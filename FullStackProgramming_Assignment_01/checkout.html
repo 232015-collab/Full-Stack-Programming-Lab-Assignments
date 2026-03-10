@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | HotSpring Spas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span>🔒 Secure Checkout — HotSpring Spas</span>
+            <div><a href="cart.html">← Back to Cart</a></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2 class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">HOT<span>SPRING</span></a>
+            </h2>
+            <div style="font-size:13px;color:#888;">🔒 SSL Secured &nbsp;|&nbsp; 100% Safe Checkout</div>
+            <div class="header-right">
+                <span class="user-display"></span>
+                <a href="cart.html" class="cart-link">🛒 <span class="cart-badge" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="checkout-section" id="checkoutSection">
+        <div class="container">
+
+            <!-- STEP INDICATORS -->
+            <div class="co-steps">
+                <div class="co-step-indicator" id="coInd1">
+                    <div class="co-step-num">1</div>
+                    <div class="co-step-label">Billing Info</div>
+                </div>
+                <div class="co-step-indicator" id="coInd2">
+                    <div class="co-step-num">2</div>
+                    <div class="co-step-label">Payment</div>
+                </div>
+                <div class="co-step-indicator" id="coInd3">
+                    <div class="co-step-num">3</div>
+                    <div class="co-step-label">Review &amp; Pay</div>
+                </div>
+            </div>
+
+            <div class="co-layout">
+
+                <!-- FORM COLUMN -->
+                <div class="co-form-col">
+
+                    <!-- ===== STEP 1: BILLING ADDRESS ===== -->
+                    <div class="co-step-panel" id="coStep1">
+                        <h4>📋 Step 1 — Billing Information</h4>
+                        <div class="form-error" id="coBillingError"></div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="co_fname" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="co_lname" placeholder="Last Name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="co_email" placeholder="your@email.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="co_phone" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Street Address *</label>
+                                <input type="text" class="form-control" id="co_addr"
+                                    placeholder="House number and street name">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Apt / Suite / Floor (Optional)</label>
+                                <input type="text" class="form-control" id="co_addr2"
+                                    placeholder="Apartment, suite, unit, etc.">
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label">City *</label>
+                                <input type="text" class="form-control" id="co_city" placeholder="City">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">State *</label>
+                                <input type="text" class="form-control" id="co_state" placeholder="State">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">ZIP Code *</label>
+                                <input type="text" class="form-control" id="co_zip" placeholder="Zip Code">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Country *</label>
+                                <select class="form-control" id="co_country">
+                                    <option value="">-- Select Country --</option>
+                                    <option>United States</option>
+                                    <option>United Kingdom</option>
+                                    <option>Canada</option>
+                                    <option>Australia</option>
+                                    <option>Pakistan</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                    <input type="checkbox" id="co_same_shipping"> Ship to this address
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a href="cart.html" style="font-size:13px;color:#888;text-decoration:none;">← Back to
+                                Cart</a>
+                            <button class="co-btn-next" id="coBillingNext">Continue to Payment →</button>
+                        </div>
+                    </div>
+
+                    <!-- ===== STEP 2: PAYMENT ===== -->
+                    <div class="co-step-panel" id="coStep2">
+                        <h4>💳 Step 2 — Payment Details</h4>
+
+                        <div class="card-types">
+                            <div class="card-type-badge selected">💳 VISA</div>
+                            <div class="card-type-badge">💳 Mastercard</div>
+                            <div class="card-type-badge">💳 Amex</div>
+                            <div class="card-type-badge">💳 PayPal</div>
+                        </div>
+
+                        <div class="form-error" id="coPaymentError"></div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Cardholder Name *</label>
+                                <input type="text" class="form-control" id="co_cardholder"
+                                    placeholder="Name as it appears on card">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Card Number *</label>
+                                <input type="text" class="form-control" id="co_card" placeholder="1234 5678 9012 3456"
+                                    maxlength="19">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Expiry Date * (MM/YY)</label>
+                                <input type="text" class="form-control" id="co_expiry" placeholder="MM/YY"
+                                    maxlength="5">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">CVV / CVC *</label>
+                                <input type="text" class="form-control" id="co_cvv" placeholder="3-4 digits"
+                                    maxlength="4">
+                            </div>
+                        </div>
+                        <div
+                            style="margin-top:16px;background:#f0fff4;border:1px solid #b2dfdb;padding:12px 16px;border-radius:8px;font-size:12px;color:#2e7d32;">
+                            🔒 Your payment info is secured with 256-bit SSL encryption. We never store your card
+                            details.
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <button class="co-btn-back" id="coPaymentBack">← Back</button>
+                            <button class="co-btn-next" id="coPaymentNext">Review Order →</button>
+                        </div>
+                    </div>
+
+                    <!-- ===== STEP 3: REVIEW ===== -->
+                    <div class="co-step-panel" id="coStep3">
+                        <h4>🔍 Step 3 — Review &amp; Place Order</h4>
+
+                        <div class="review-section">
+                            <h6>Billing Address</h6>
+                            <div class="review-info" id="reviewBillingAddr">—</div>
+                        </div>
+                        <div class="review-section">
+                            <h6>Contact</h6>
+                            <div class="review-info" id="reviewEmail">—</div>
+                        </div>
+                        <div class="review-section">
+                            <h6>Payment Method</h6>
+                            <div class="review-info">Card ending in <b id="reviewCard">****</b></div>
+                        </div>
+                        <div class="review-section">
+                            <h6>Items in Order</h6>
+                            <div id="reviewItems" style="background:#f8f8f8;border-radius:8px;padding:14px 18px;"></div>
+                        </div>
+
+                        <div
+                            style="background:#fff3cd;border:1px solid #ffc107;padding:14px 18px;border-radius:8px;font-size:13px;color:#856404;margin-bottom:20px;">
+                            ℹ️ By placing this order you agree to our <a href="terms.html" target="_blank"
+                                style="color:#856404;font-weight:600;">Terms &amp; Conditions</a>.
+                        </div>
+
+                        <button id="coPlaceOrder">🛒 Place Order — <span id="coFinalTotal">$0.00</span></button>
+
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="co-btn-back" id="coReviewBack">← Back to Payment</button>
+                        </div>
+                    </div>
+
+                </div><!-- /co-form-col -->
+
+                <!-- ORDER SUMMARY SIDEBAR -->
+                <div class="co-summary-col">
+                    <div class="co-summary-box">
+                        <h5>🛒 Order Summary</h5>
+                        <div id="checkoutSummaryItems">
+                            <p style="font-size:13px;color:#aaa;">Loading…</p>
+                        </div>
+                        <hr class="co-divider">
+                        <div class="co-row"><span>Subtotal</span><span id="coSubtotal">—</span></div>
+                        <div class="co-row"><span>Shipping</span><span id="coShipping">—</span></div>
+                        <div class="co-row total"><span>Total</span><span id="coTotal">—</span></div>
+                        <div style="margin-top:16px;font-size:12px;color:#aaa;text-align:center;line-height:1.6;">
+                            🔒 Secure checkout &nbsp;|&nbsp; Free returns<br>📦 Free shipping on orders over $300
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /co-layout -->
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top:40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p>Call 24/7: <b>888-201-8899</b></p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Safe Shopping</h5>
+                    <ul>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>We Accept</h5>
+                    <div style="font-size:28px;">💳 🏦 💰 🅿️</div>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2024 HotSpringService.com. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Card type selector
+        $(document).ready(function () {
+            $('.card-type-badge').click(function () {
+                $('.card-type-badge').removeClass('selected');
+                $(this).addClass('selected');
+            });
+            // Populate review items when on step 3
+            $(document).on('click', '#coPaymentNext', function () {
+                setTimeout(function () {
+                    var items = Cart.get();
+                    var html = '';
+                    items.forEach(function (item) {
+                        html += '<div class="co-item" style="padding:8px 0;">' +
+                            '<img src="' + item.image + '" alt="' + item.name + '" style="width:42px;height:42px;object-fit:cover;border-radius:5px;">' +
+                            '<div class="co-item-info"><div class="co-item-name">' + item.name + '</div><div class="co-item-qty">x' + item.qty + '</div></div>' +
+                            '<div class="co-item-price">$' + (item.price * item.qty).toFixed(2) + '</div></div>';
+                    });
+                    $('#reviewItems').html(html || '<p style="color:#aaa;font-size:13px;">No items</p>');
+                    $('#coFinalTotal').text('$' + (Cart.total() + 25).toFixed(2));
+                }, 50);
+            });
+        });
+    </script>
+</body>
+
+</html>
